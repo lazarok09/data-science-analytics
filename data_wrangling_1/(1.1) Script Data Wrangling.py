@@ -27,6 +27,7 @@ import matplotlib.pyplot as plt
 #%% Importando os bancos de dados
 
 dados_tempo = pd.read_excel('(1.2) dataset_principal.xls')
+print(type(dados_tempo))
 dados_merge = pd.read_excel('(1.3) dataset_join.xls')
 # "dados_tempo" - Fonte: Fávero & Belfiore (2024, Cap. 12)
 
