@@ -712,7 +712,7 @@ print(pisa.head(5))
 
 # Quais são os nomes das variáveis disponíveis?
 
-print(pisa.columns)
+lista_variaveis_do_pisa = pisa.columns
 
 #%% Detalhes das variáveis do dataset
 
@@ -743,10 +743,13 @@ print(pisa['country'])
 # Podemos armazenar a variável especificada em um novo objeto
 
 paises_pisa = pisa['country']
+print(type(paises_pisa))
+
 
 # Também poderíamos armazenar mais de uma variável em um novo objeto
 
 pisa_reading_2018 = pisa[['country', 'reading_2018']]
+print(type(pisa_reading_2018))
 
 #%% Removendo variáveis sem uso
 
@@ -774,6 +777,10 @@ del pisa_reading_2018
 # Qual é a nota de matemática em 2022 para o Brasil?
 
 print(pisa.iloc[46, 2])
+
+# buscando a decima quarta posicao, da hungria, na coluna de ciencias
+hungria_2022_ciencia = pisa.iloc[14, 4]
+print(hungria_2022_ciencia)
 
 #%% Identificando uma observação completa por posição
 

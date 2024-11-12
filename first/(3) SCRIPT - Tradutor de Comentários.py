@@ -37,7 +37,7 @@ def translate_comment(comment, translator, retries=5, delay=2):
     for attempt in range(retries):
         try:
             translated_comment = translator.translate(comment,
-                                                      src='pt', dest='en').text
+                                                      src='pt', dest='de').text
             return translated_comment
         except Exception as e:
             print(f"Erro ao traduzir: {e}. Tentativa {attempt + 1} de {retries}.")
