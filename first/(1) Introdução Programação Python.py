@@ -786,13 +786,15 @@ print(hungria_2022_ciencia)
 
 # Quais são os valores de todas as variáveis para o Japão?
 
-print(pisa.iloc[19,])
+print(pisa.iloc[19,0:3])
 
 #%% Identificando algumas observações completas por posição
 
 # Quais são os valores de todas as variáveis para os países de index de 0 a 6?
 
 print(pisa.iloc[0:7, ])
+
+primeirosSetes = pisa.iloc[0:7, ]
 
 # É necessário adicionar uma posição a mais no final!
 
@@ -853,6 +855,7 @@ pisa_na = pisa.dropna()
 
 pisa[['mathematics_2022', 'reading_2022', 'science_2022']].describe()
 
+onlyMath2022 = pisa['reading_2018'].describe()
 # Tabela de frequências para variável qualitativa
 
 pisa['group'].value_counts()
