@@ -604,13 +604,6 @@ print(quantidade_salarios(3000))
 print(quantidade_salarios(14120))
 print(quantidade_salarios(15000))
 
-##%% Isso deu errado
-
- salarios_coletados = pd.Series([1200, 3600, 5000])
- salvei = quantidade_salarios(salarios_coletados)
- print(salvei)
-
-
 
 #%% Vários inputs e múltiplas condições
 
@@ -860,7 +853,7 @@ onlyMath2022 = pisa['reading_2018'].describe()
 
 pisa['group'].value_counts()
 
-#%% Filtrando observações por meio de operadores
+    #%% Filtrando observações por meio de operadores
 
 # É possível filtrar observações por meio dos operadores:
 # Alguns operadores úteis para realizar filtros:
@@ -896,14 +889,20 @@ print(pisa[pisa['group'] != 'OECD'])
 # Nota em leitura no ano de 2022 menor do que 386 ou maior do que 480
 
 print(pisa[(pisa['reading_2022'] < 386) | (pisa['reading_2022'] > 480)])
+
+quais_sao = pisa[(pisa['country'] == 'Brazil') & (pisa['science_2022'] <= 493)]
+
+print(pisa.describe())
 extremos_leitura = (pisa[(pisa['reading_2022'] < 386) | (pisa['reading_2022'] > 480)])
+
+extremos_leitura_organizado = extremos_leitura.sort_values(by='mathematics_2022',ascending=True,ignore_index=True)
 
 #%% Agrupamento dos dados por algum critério
 
 # Agrupando os dados pelo método groupby
 
 pisa_grupo = pisa.groupby(by=['group'])
-
+print(type(pisa_grupo))
 # O pisa_grupo está agrupado e não pode mais ser manipulado como antes
 # As informações serão extraídas com base no critério de agrupamento
 
@@ -933,7 +932,9 @@ nomes = ["pais",
          "ciencias_2018"]
 
 pisa.columns = nomes
+extremos_leitura_organizado.rename(columns={'reading_2022':'leituras_2022'}, inplace=True)
 
+print(extremos_leitura_organizado.info())
 print(pisa.info())
 
 # Para trocar apenas um nome:
