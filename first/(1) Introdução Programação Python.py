@@ -982,15 +982,16 @@ sns.countplot(data=comercio, x="market")
 plt.figure(figsize=(15,9), dpi = 600)
 sns.countplot(data=comercio, x="market", order=["APAC", "LATAM", "EU", "US", "Africa", "EMEA", "Canada"])
 
+
 # Vamos adicionar algumas formatações ao gráfico básico
 
 plt.figure(figsize=(15,9), dpi = 600)
 sns.countplot(data=comercio, x="market", order=["APAC", "LATAM", "EU", "US", "Africa", "EMEA", "Canada"])
 plt.title("Análise por Mercado",fontsize=20)
 plt.xlabel('Mercado',fontsize=15)
-plt.ylabel('Conatgem',fontsize=15)
-plt.xticks(fontsize=14)
-plt.yticks(fontsize=14)
+plt.ylabel('Contagem',fontsize=15)
+plt.xticks(fontsize=24)
+plt.yticks(fontsize=24)
 plt.show()
 
 # Podemos trocar as cores das barras
@@ -1029,7 +1030,8 @@ sns.palplot(palette)
 # Vamos alterar o tema do gráfico e adicionar as contagens
 
 plt.figure(figsize=(15,9), dpi = 600)
-ax = sns.countplot(data=comercio, x="market", hue="market", order=["APAC", "LATAM", "EU", "US", "Africa", "EMEA", "Canada"], palette='viridis', legend=False)
+ax = sns.countplot(data=comercio, x="market", hue="market",
+                   order=["APAC", "LATAM", "EU", "US", "Africa", "EMEA", "Canada"], palette='viridis', legend=False)
 for container in ax.containers: ax.bar_label(container, fontsize=12)
 plt.title("Análise por Mercado",fontsize=20)
 plt.xlabel('Mercado',fontsize=15)
