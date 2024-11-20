@@ -1242,7 +1242,7 @@ fig_line.show()
 
 # Salvando a figura
 
-fig_line.write_html('grafico_linhas.html')
+fig_line.write_html('grafico_linhas.html', auto_open=False)
 
 #%% Gráfico de calor
 
