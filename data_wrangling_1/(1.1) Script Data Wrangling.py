@@ -193,7 +193,7 @@ dados_tempo['faixa'] = np.where(dados_tempo['tempo']<=20, 'rápido',
 
 ## 6. Outra forma de categorizar é por meio dos quartis de variáveis (q=4)
 
-dados_tempo['quartis'] = pd.qcut(dados_tempo['tempo'], q=4, labels=['1','2','3','4'])
+dados_tempo['quartis'] = pd.qcut(dados_tempo['tempo'], q=4, labels=['primeiro quartil','segundo quartil','3','4'])
 
 ## 7. Em certas circunstâncias será necessário trocar o tipo da variável
 # Para evitar a ponderação arbitrária no df_numeros, vamos alterar o tipo
@@ -214,7 +214,7 @@ df_org_1 = dados_tempo.sort_values(by=['tempo'], ascending=True).reset_index(dro
 
 # Organizando em ordem decrescente
 
-df_org_2 = dados_tempo.sort_values(by=['tempo'], ascending=False).reset_index(drop=True)
+df_org_2 = dados_tempo.sort_values(by=['tempo'], ascending=False).reset_index()
 
 # Também é possível organizar variáveis texto
 
@@ -336,7 +336,7 @@ filtro_tempo_1 = dados_tempo[dados_tempo['tempo'] >= 25]
 
 filtro_tempo_2 = dados_tempo[(dados_tempo['tempo'] > 30) & (dados_tempo['distancia'] <= 25)]
 
-filtro_tempo_3 = dados_tempo[dados_tempo['tempo'].between(25, 40, inclusive='both')]
+filtro_tempo_3 = dados_tempo[dados_tempo['tempo'].between(1, 30, inclusive='neither')]
 # inclusive: "both", "neither", "left" ou "right"
 
 dados_tempo.query('tempo >= 25')
@@ -346,9 +346,14 @@ dados_tempo.query('tempo.between(25, 40, inclusive="both")')
 # Comparando com valores de outro objeto (isin())
 
 nomes = pd.Series(["Gabriela", "Gustavo", "Leonor", "Ana", "Júlia"])
+
 filtro_contidos = dados_tempo[dados_tempo['estudante'].isin(nomes)]
 
 dados_tempo.query('estudante.isin(@nomes)') # note o @ referenciando o objeto
+
+filtro_sozinho = pd.Series(["Gustavo"])
+
+dados_tempo.query('estudante.isin(@filtro_sozinho)')
 
 # Usando o critério "não" (inverte o argumento)
 
@@ -433,7 +438,7 @@ merge_3.isna().sum()
 
 # Caso queira substituir NAs por algum elemento
 
-merge_3 = merge_3.assign(quartis = merge_3.quartis.astype('object'))
+merge_3 = merge_3.assign(quartis = merge_3.quartis.astype('category'))
 
 # Texto
 
