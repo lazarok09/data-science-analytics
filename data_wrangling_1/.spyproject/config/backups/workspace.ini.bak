@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['(1.1) Script Data Wrangling.py', '../../../anaconda3/envs/spyder-env/lib/python3.9/site-packages/pandas/io/excel/_base.py']
+recent_files = ['(3.1) Script CVM.py', '(4.1) Script Jogos Copa.py']
 
 [main]
 version = 0.2.0

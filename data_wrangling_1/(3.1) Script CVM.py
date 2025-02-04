@@ -43,6 +43,7 @@ contas = dados_cvm['DS_CONTA'].unique()
 dados_sel = dados_cvm.query('CD_CONTA == "3.01" | CD_CONTA == "3.11"')
 
 #%% Vamos ajustar a variável de data (que está como texto)
+dados_sel.info()
 
 data = pd.to_datetime(dados_sel['DT_FIM_EXERC']).dt.year
 dados_sel.insert(5, 'ANO', data)
@@ -57,7 +58,7 @@ dados_sel = dados_sel.sort_values(by=['CD_CONTA', 'CD_CVM'], ascending=True)
 
 #%% Análise de duplicidades de observações
 
-contagem = dados_sel.groupby(['CD_CVM', 'CD_CONTA'])['VL_CONTA'].count()
+contagem =  dados_sel.groupby(['CD_CVM','CD_CONTA'])['VL_CONTA'].count()
 
 # Há um resíduo no dataset, a empresa CD_CVM = 26077 tem duplicidades
 

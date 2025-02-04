@@ -68,6 +68,7 @@ dados_wdi['pais'].tail(n=20)
 # Vamos selecionar as variáveis com base neste critério
 dados_saude = dados_wdi[dados_wdi['topico'].str.startswith('Health')]
 
+
 #%% Colocando as séries nas colunas
 
 # O banco de dados não apresenta a estrutura com variáveis em colunas

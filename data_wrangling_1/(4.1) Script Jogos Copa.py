@@ -46,6 +46,7 @@ dados_jogos['venceu'] = np.where((dados_jogos['team_home_score'] - dados_jogos['
 # Primeiramente, substituir os textos Falses por NAs
 dados_jogos['pens_home_score'] = dados_jogos['pens_home_score'].replace('False', np.nan)
 dados_jogos['pens_away_score'] = dados_jogos['pens_away_score'].replace('False', np.nan)
+dados_jogos['pens_away_score'] = dados_jogos['pens_away_score'].replace('False', np.nan)
 
 # Em seguida, convertendo para variáveis numéricas
 dados_jogos['pens_home_score'] = dados_jogos['pens_home_score'].astype('float')
